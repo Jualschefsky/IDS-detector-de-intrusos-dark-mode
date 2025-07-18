@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Relatório de Segurança</title>
+  <meta charset="UTF-8">
+  <title>IDS — Detector de Intrusos</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favi.png') }}" type="image/png">
 </head>
 <body>
   <h1>🛡️ Analisador de Segurança</h1>
 
-  <p>Envie seu próprio arquivo de registro (.txt) para gerar um relatório de atividades suspeitas.</p>
+  <p>Envie um arquivo de registros (.txt) para gerar um relatório personalizado sobre possíveis atividades suspeitas.</p>
 
   <form method="POST" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="logfile" required>
-    <button type="submit">🔍 Analisar meu arquivo</button>
+    <input type="file" name="logfile" accept=".txt" required>
+    <button type="submit">🔍 Analisar Arquivo</button>
   </form>
 
   <hr>
 
   {% if alerts %}
-    <h2>Ações suspeitas detectadas:</h2>
+    <h2>🚨 Ações suspeitas detectadas:</h2>
     <ul>
       {% for alerta in alerts %}
         <li>{{ alerta }}</li>
       {% endfor %}
     </ul>
   {% else %}
-    <h2>✅ Nenhum comportamento suspeito detectado</h2>
-    <pSeu sistema parece estar funcionando normalmente. Nenhum risco foi identificado no arquivo enviado.</p>
+    {% if alerts is not none %}
+      <h2>✅ Nenhuma atividade suspeita detectada</h2>
+      <p>O sistema analisou seu arquivo e não encontrou nenhum comportamento incomum.</p>
+    {% endif %}
   {% endif %}
 </body>
 </html>
