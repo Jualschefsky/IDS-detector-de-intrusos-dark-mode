@@ -1,0 +1,27 @@
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #000000; /* fundo preto */
+  color: #ff3c3c;            /* letras vermelhas */
+  padding: 30px;
+}
+
+h1, h2 {
+  color: #ff3c3c;
+}
+
+ul {
+  background-color: #1a1a1a; /* cinza escuro para contraste */
+  padding: 15px;
+  border: 1px solid #ff3c3c;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+pre {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border: 1px solid #ff3c3c;
+  overflow-x: auto;
+}

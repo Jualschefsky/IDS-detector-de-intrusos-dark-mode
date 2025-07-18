@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IDS - Detecção de Intrusos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">>
+</head>
+<body>
+  <h1>🔐 IDS - Relatório de Segurança</h1>
+  <h2>Alertas Detectados:</h2>
+  <ul>
+    {% for alerta in alerts %}
+      <li>{{ alerta }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Logs Analisados:</h2>
+  <pre>
+    {% for log in logs %}
+      {{ log }}
+    {% endfor %}
+  </pre>
+</body>
+</html>

@@ -1,0 +1,6 @@
+usuario=joao falha_login hora=10
+usuario=joao falha_login hora=10
+usuario=joao falha_login hora=10
+usuario=joao falha_login hora=10
+usuario=joao falha_login hora=10
+usuario=maria acesso_restrito hora=23
