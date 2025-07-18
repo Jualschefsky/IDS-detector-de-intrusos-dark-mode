@@ -1,18 +1,15 @@
-from flask import Flask, render_template
-from rules import detect_suspicious_activity
-
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route("/")
-def index():
-    print("✅ Entrou na rota /")  # ← TESTE: verifica se a função está sendo chamada
+def home():
+    return render_template("index.html", alerts=None)
 
-
-    with open("logs.txt") as f:
-        logs = f.readlines()
-    alerts = []  # TESTE: simula ausência de alertas
-
-    return render_template("index.html", alerts=alerts, logs=logs)
-
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.route("/upload", methods=["POST"])
+def upload_log():
+    file = request.files["logfile"]
+    content = file.read().decode("utf-8")
+    logs = content.splitlines()
+    
+    alerts = detect_suspicious_activity(logs)  # sua função de análise
+    return render_template("index.html", alerts=alerts)
