@@ -7,10 +7,17 @@
 <body>
   <h1>🔐 IDS - Relatório de Segurança</h1>
   <h2>Alertas Detectados:</h2>
+{% if alerts %}
   <ul>
     {% for alerta in alerts %}
-      <li>{{ alerta }}</li>
+    <li>{{ alerta }}</li>
     {% endfor %}
+  </ul>
+{% else %}
+  <ul>
+    <li>✅ Nenhum problema detectado. Tudo está funcionando normalmente!</li>
+  </ul>
+{% endif %}
   </ul>
 
   <h2>Logs Analisados:</h2>
