@@ -1,29 +1,36 @@
-# 🔐 IDS - Sistema de Detecção de Intrusos
+# 🛡️ IDS — Detector de Intrusos
 
-Este projeto simula um sistema IDS baseado em regras simples escritas em Python. Ele analisa registros de log e exibe alertas de segurança em uma interface web criada com Flask.
+Interface web simples e funcional para análise de registros de sistema (.txt) e detecção de comportamentos suspeitos.  
+O projeto simula um **Sistema de Detecção de Intrusão (IDS)** básico, ideal para aprender sobre segurança em aplicações web.
+
+## 🚀 Funcionalidades
+
+- Upload de arquivos `.txt` diretamente pela interface
+- Análise automática de logs em busca de palavras-chave (como `erro`, `falha`, `suspeito`)
+- Geração de relatórios dinâmicos na própria página
+- Interface intuitiva e mensagens de alerta em tempo real
+- Favicon personalizado e layout responsivo
+
+## 📷 Interface do sistema
+
+![Preview](static/interface-atualizada.png)
+
+## 🧠 Como usar
+
+1. Acesse a aplicação no navegador
+2. Envie um arquivo de log (.txt) pelo campo de upload
+3. O sistema processa o conteúdo e exibe alertas na tela
 
 ---
 
-## 🚨 Funcionalidades
-
-- Detecta múltiplas falhas de login consecutivas
-- Identifica acessos restritos fora do horário permitido
-- Exibe os alertas e os logs analisados via navegador
-
----
 
 ## 🛠️ Tecnologias
 
 - Python
 - Flask
 - HTML + CSS
-- Jinja2 (template engine)
-
----
-
-## 💻 Interface do Sistema
-
-![Interface IDS](interface.png)
+- Hospedagem via render
+- UptimeRobot — Monitoramento contínuo da disponibilidade da aplicação online
 
 ---
 
@@ -42,8 +49,7 @@ ids-rules/
 ---
 
 ## Projeto voltado para pessoas comuns
-Este IDS foi criado pensando em **usuários não técnicos**, ou seja, pessoas comuns que desejam monitorar atividades suspeitas mas **não sabem programar** ou instalar nada complicado.
-
+Este IDS foi criado pensando não apenas em desenvolvedores, mas também em **usuários não técnicos**, ou seja, pessoas comuns que desejam monitorar atividades suspeitas mas **não sabem programar** ou instalar nada complicado, tornando assim este projeto realmente funcional e importante.
 Basta acessar o sistema via navegador — sem necessidade de baixar Python, mexer com terminal ou configurar ambiente. O projeto roda online com visual dark mode e já exibe os logs e alertas automaticamente.
 
 ---
