@@ -10,7 +10,8 @@ def index():
 
     with open("logs.txt") as f:
         logs = f.readlines()
-    alerts = detect_suspicious_activity(logs)
+    alerts = []  # TESTE: simula ausência de alertas
+
     return render_template("index.html", alerts=alerts, logs=logs)
 
 if __name__ == "__main__":
