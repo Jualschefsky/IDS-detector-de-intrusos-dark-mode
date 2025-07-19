@@ -29,3 +29,11 @@ def upload_log():
         return render_template("index.html", alerts=alerts)
     except Exception as e:
         return f"❌ Erro ao processar o arquivo: {str(e)}", 500
+        except Exception as e:
+        return f"❌ Erro ao processar o arquivo: {str(e)}", 500
+
+     if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
