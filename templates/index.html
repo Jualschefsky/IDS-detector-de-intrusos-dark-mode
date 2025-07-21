@@ -2,34 +2,123 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>IDS — Detector de Intrusos</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  <link rel="icon" href="{{ url_for('static', filename='favi.png') }}" type="image/png">
+  <title>Sistema de Detecção de Ameaças</title>
+  <link rel="icon" href="{{ url_for('static', filename='favi.jpg.jpg') }}" type="image/jpeg">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .painel {
+      width: 100%;
+      background-image: url("{{ url_for('static', filename='hack.png') }}");
+      background-size: 100% 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
+      padding: 30px;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      box-sizing: border-box;
+    }
+
+    .conteudo {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .conteudo * {
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+    }
+
+    h2, h3 {
+      color: #ff4d4d;
+      margin-bottom: 15px;
+    }
+
+    p, ul {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      text-align: left;
+      padding-left: 0;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #ff4d4d;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid #ff4d4d;
+    }
+
+    button {
+      background-color: #ff4d4d;
+      border: none;
+      cursor: pointer;
+    }
+
+    .resultado {
+      background-color: rgba(15,15,15,0.8);
+      padding: 10px;
+      border-left: 4px solid #ff4d4d;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h1>🛡️ Analisador de Segurança</h1>
+  <div class="painel">
+    <div class="conteudo">
+      <h2>Sistema de Detecção de Ameaças Cibernéticas</h2>
 
-  <p>Envie um arquivo de registros (.txt) para gerar um relatório personalizado sobre possíveis atividades suspeitas.</p>
+      <p>Este sistema foi desenvolvido para identificar e prevenir <strong>ameaças cibernéticas</strong> por meio de duas ferramentas principais:</p>
 
-  <form method="POST" action="/upload" enctype="multipart/form-data">
-    <input type="file" name="logfile" accept=".txt" required>
-    <button type="submit">🔍 Analisar Arquivo</button>
-  </form>
+      <h3>• Análise de arquivos .txt / .log</h3>
+      <p>Arquivos de log e texto são registros gerados por sistemas operacionais, redes ou aplicações. Eles podem conter informações sobre acessos, falhas, comandos executados ou tentativas de invasão.</p>
 
-  <hr>
+      <h3>• Verificação de Links Suspeitos</h3>
+      <p>Sites maliciosos podem hospedar códigos perigosos e representar riscos à segurança digital.</p>
+      <ul>
+        <li>Phishing (roubo de dados e credenciais)</li>
+        <li>Malware ou Trojan em páginas ocultas</li>
+        <li>Redirecionamento para redes de bots ou sites clonados</li>
+        <li>Atividade vinculada a spam, vírus ou ransomware</li>
+      </ul>
 
-  {% if alerts %}
-    <h2>🚨 Ações suspeitas detectadas:</h2>
-    <ul>
-      {% for alerta in alerts %}
-        <li>{{ alerta }}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    {% if alerts is not none %}
-      <h2>✅ Nenhuma atividade suspeita detectada</h2>
-      <p>O sistema analisou seu arquivo e não encontrou nenhum comportamento incomum.</p>
-    {% endif %}
-  {% endif %}
+      <h3>• Envio de Arquivo para Análise</h3>
+      <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Analisar Arquivo</button>
+      </form>
+      {% if resultado %}
+        <div class="resultado">{{ resultado }}</div>
+      {% endif %}
+
+      <h3>• Verificação de Site Suspeito</h3>
+      <form method="POST">
+        <input type="text" name="link" placeholder="https://exemplo.com" />
+        <button type="submit">Verificar Link</button>
+      </form>
+      {% if resultado_link %}
+        <div class="resultado">{{ resultado_link }}</div>
+      {% endif %}
+    </div>
+  </div>
 </body>
 </html>

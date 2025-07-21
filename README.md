@@ -1,36 +1,43 @@
-# 🛡️ IDS — Detector de Intrusos
+# 🛡️ Sistema de Detecção de Ameaças Cibernéticas
 
-Interface web simples e funcional para análise de registros de sistema (.txt) e detecção de comportamentos suspeitos.  
-O projeto simula um **Sistema de Detecção de Intrusão (IDS)** básico, ideal para aprender sobre segurança em aplicações web.
+Este é um projeto Flask com foco em **segurança digital**, que permite:
 
-## 🚀 Funcionalidades
-
-- Upload de arquivos `.txt` diretamente pela interface
-- Análise automática de logs em busca de palavras-chave (como `erro`, `falha`, `suspeito`)
-- Geração de relatórios dinâmicos na própria página
-- Interface intuitiva e mensagens de alerta em tempo real
-- Favicon personalizado e layout responsivo
-
-## 📷 Interface do sistema
-
-![Preview](static/interface-atualizada.png)
-
-## 🧠 Como usar
-
-1. Acesse a aplicação no navegador
-2. Envie um arquivo de log (.txt) pelo campo de upload
-3. O sistema processa o conteúdo e exibe alertas na tela
+- 📁 Analisar arquivos `.txt` ou `.log` para detectar padrões de atividades maliciosas
+- 🔗 Verificar a reputação de links suspeitos através da API IPQualityScore
+- 🖼️ Interface visual estilizada com imagem de fundo hacker
+- 🌐 Deploy em produção usando Render + Uptime Robot
 
 ---
 
+## 🚀 Tecnologias Utilizadas
 
-## 🛠️ Tecnologias
+- **Flask** — Framework web em Python
+- **Jinja2** — Templates HTML dinâmicos
+- **Chardet** — Detecta codificação de arquivos `.txt` ou `.log`
+- **Requests** — Consome APIs externas
+- **Gunicorn** — Servidor WSGI para produção
+- **Render** — Hospedagem do projeto
+- **Uptime Robot** — Monitoramento contínuo para manter a aplicação viva
 
-- Python
-- Flask
-- HTML + CSS
-- Hospedagem via render
-- UptimeRobot — Monitoramento contínuo da disponibilidade da aplicação online
+---
+
+## 🧰 Funcionalidades :
+
+### 📁 Análise de arquivos de texto
+
+- Detecta comandos suspeitos como:
+  - `DROP TABLE`, `exec("/bin/bash")`, `<script>`, `Failed password`
+  - Ataques de SQL Injection ou tentativas de invasão
+
+### 🔗 Verificação de links
+
+- Utiliza a [API IPQualityScore](https://ipqualityscore.com/documentation/url-scanner)
+- Retorna nível de risco, comportamento malicioso ou phishing
+
+---
+
+## 📂 Estrutura do Projeto
+ne
 
 ---
 
