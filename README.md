@@ -4,20 +4,23 @@ Este é um projeto Flask com foco em **segurança digital**, que permite:
 
 - 📁 Analisar arquivos `.txt` ou `.log` para detectar padrões de atividades maliciosas
 - 🔗 Verificar a reputação de links suspeitos através da API IPQualityScore
-- 🖼️ Interface visual estilizada com imagem de fundo hacker
+- 🖼️ Interface visual personalizada 
 - 🌐 Deploy em produção usando Render + Uptime Robot
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
 
+- python
+- Html e CSS
 - **Flask** — Framework web em Python
 - **Jinja2** — Templates HTML dinâmicos
 - **Chardet** — Detecta codificação de arquivos `.txt` ou `.log`
 - **Requests** — Consome APIs externas
 - **Gunicorn** — Servidor WSGI para produção
 - **Render** — Hospedagem do projeto
-- **Uptime Robot** — Monitoramento contínuo para manter a aplicação viva
+- **Uptime Robot** — Monitoramento contínuo para manter a aplicação disponível 24h
+
 
 ---
 
@@ -39,14 +42,9 @@ Este é um projeto Flask com foco em **segurança digital**, que permite:
 ## 📂 Estrutura do Projeto
 ne
 
----
-
-## 📦 Estrutura do Projeto
-
 ids-rules/
 ├── app.py               # Executa o servidor
 ├── rules.py             # Regras de detecção
-├── logs.txt             # Logs simulados
 ├── templates/
 │   └── index.html       # Página HTML
 ├── static/
