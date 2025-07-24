@@ -3,10 +3,13 @@ import chardet
 import requests
 import urllib.parse
 import re
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
-IPQS_API_KEY = "ODJwYMfNlHOXIfP5bL6RyIukyu63ZWWX"
+IPQS_API_KEY =  os.getenv("IPQS_API_KEY")
 
 def ler_arquivo_texto(file):
     raw_data = file.read()
